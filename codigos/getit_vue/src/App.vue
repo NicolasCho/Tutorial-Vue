@@ -13,11 +13,13 @@
      -->
 
     <!-- 6:PASSANDO INFORMAÇÕES AO COMPONENT (forma estática[sem v-bind])
-    <Note title="Receita de miojo" content="Bata com um martelo antes de abrir o pacote. Misture o tempero, coloque
-      em uma vasilha e aproveite seu snack :)"> 
-    </Note>
-    <Note title="Sorvete de banana" content="Coloque a banana no congelador e espere.">
-    </Note>
+    <div>
+      <Note title="Receita de miojo" content="Bata com um martelo antes de abrir o pacote. Misture o tempero, coloque
+        em uma vasilha e aproveite seu snack :)"> 
+      </Note>
+      <Note title="Sorvete de banana" content="Coloque a banana no congelador e espere.">
+      </Note>
+    </div>
     -->
 
     <!-- 9: MULTIPLOS COMPONENTS https://5balloons.info/passing-data-to-components-with-props-in-vuejs/
@@ -63,8 +65,6 @@ export default {
 
  <!-- 9: MULTIPLOS COMPONENTS-->
 <style >
-
-
 .card-container{
   display:flex;
   flex-wrap: wrap;

@@ -1,0 +1,968 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Tutorial Vue.js</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vuejs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Tutorial Vue.js" class="md-header__button md-logo" aria-label="Tutorial Vue.js" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutorial Vue.js
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Tutorial Vue.js" class="md-nav__button md-logo" aria-label="Tutorial Vue.js" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tutorial Vue.js
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Vue.js
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Vue.js
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-vuejs" class="md-nav__link">
+    O Vue.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-e-setup" class="md-nav__link">
+    Instalação e setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-o-desenvolvimento" class="md-nav__link">
+    Iniciando o desenvolvimento
+  </a>
+  
+    <nav class="md-nav" aria-label="Iniciando o desenvolvimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-do-projeto" class="md-nav__link">
+    Estrutura do projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-file-components" class="md-nav__link">
+    Single file components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-o-primeiro-component" class="md-nav__link">
+    Criando o primeiro component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passando-informacoes-as-notas" class="md-nav__link">
+    Passando informações às notas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renderizando-multiplos-components" class="md-nav__link">
+    Renderizando múltiplos components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazendo-requisicoes" class="md-nav__link">
+    Fazendo requisições
+  </a>
+  
+    <nav class="md-nav" aria-label="Fazendo requisições">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparando-para-fazer-as-requisicoes" class="md-nav__link">
+    Preparando para fazer as requisições
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilizando-o-axios" class="md-nav__link">
+    Utilizando o axios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-formulario" class="md-nav__link">
+    Criando um formulário
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotacao-dos-cartoes" class="md-nav__link">
+    Rotação dos cartões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-vuejs" class="md-nav__link">
+    O Vue.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-e-setup" class="md-nav__link">
+    Instalação e setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-o-desenvolvimento" class="md-nav__link">
+    Iniciando o desenvolvimento
+  </a>
+  
+    <nav class="md-nav" aria-label="Iniciando o desenvolvimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-do-projeto" class="md-nav__link">
+    Estrutura do projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-file-components" class="md-nav__link">
+    Single file components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-o-primeiro-component" class="md-nav__link">
+    Criando o primeiro component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passando-informacoes-as-notas" class="md-nav__link">
+    Passando informações às notas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renderizando-multiplos-components" class="md-nav__link">
+    Renderizando múltiplos components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazendo-requisicoes" class="md-nav__link">
+    Fazendo requisições
+  </a>
+  
+    <nav class="md-nav" aria-label="Fazendo requisições">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparando-para-fazer-as-requisicoes" class="md-nav__link">
+    Preparando para fazer as requisições
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilizando-o-axios" class="md-nav__link">
+    Utilizando o axios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-formulario" class="md-nav__link">
+    Criando um formulário
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotacao-dos-cartoes" class="md-nav__link">
+    Rotação dos cartões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="vuejs">Vue.js</h1>
+<p>Este tutorial tem como objetivo ser uma rápida introdução ao framework Vue.js. Ele abordará 
+desde a instalação e preparação do ambiente até a realização de requisições por meio do Axios.
+O tutorial seguirá o desenvolvimento de um app para criação de e visualização de notas (post-it's). </p>
+<div class="admonition warning">
+<p class="admonition-title">Servidor back-end</p>
+<p>Antes de iniciar o tutorial recomenda-se que tenha criado um servidor que proverá os dados a serem 
+recebidos nesta aplicação. Assim, recomenda-se a realização destes handouts:</p>
+<ul>
+<li><a href="https://barbaratieko.github.io/tecweb/aulas/04-django/">Tutorial Django</a></li>
+<li><a href="https://barbaratieko.github.io/tecweb/aulas/08-django-rest/">Django REST Framework</a></li>
+</ul>
+</div>
+<h2 id="o-vuejs">O Vue.js</h2>
+<p>O Vue é um framework Javascript open source utilizado principalmente para a criação de single-page applications (aplicações de páginas únicas) e interfaces de usuário.
+Trata-se de um framework progressivo, ou seja, <a href="https://vuejs.org/">é possível utilizar o Vue em apenas uma parte de sua aplicação caso você já possua uma aplicação server side</a>.
+O Vue vêm ganhando rápida visibilidade nos ultimos tempos, firmando-se como um dos frameworks mais populares atualmente (junto ao Angular e ao React).  </p>
+<h2 id="instalacao-e-setup">Instalação e setup</h2>
+<ol>
+<li>Antes de iniciar um projeto em Vue.js devemos garantir que uma versão do <a href="https://nodejs.org/en/">Node.js</a> esteja instalada em sua máquina.</li>
+<li>
+<p>Neste tutorial utilizaremos a interface de linha de comandos (CLI) do Vue para acelerar a criação do projeto. Para instalar a CLI, abra um terminal e digite:</p>
+<pre><code>npm install vue -g @vue/cli
+</code></pre>
+</li>
+<li>
+<p>Para iniciar um novo projeto utilizando a linha de comando basta escolher um diretório para armazenar o projeto e utilizar o seguinte comando no terminal:</p>
+<pre><code>vue create &lt;nome do projeto&gt;
+</code></pre>
+<p>No caso, substitua "nome do projeto" pelo nome que gostaria de dar ao projeto. Para o tutorial utilizaremos o nome "getit".</p>
+</li>
+<li>
+<p>Em seguida selecione a opção </p>
+<pre><code>Default ([Vue 2] babel, eslint)
+</code></pre>
+<p>utilizando as teclas direcionais do teclado e pressione enter.</p>
+</li>
+<li>
+<p>Ao terminar de criar o projeto, você poderá executar o app utilizando:</p>
+<pre><code>npm run serve
+</code></pre>
+<p>O app deverá estar disponível em <a href="http://localhost:8080/"><code>http://localhost:8080/</code></a></p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Extensão para o VS Code</p>
+<p>Para auxiliar no desenvolvimento de arquivos .vue no VS Code
+recomenda-se utilizar a extensão <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">Vetur</a></p>
+</div>
+<h2 id="iniciando-o-desenvolvimento">Iniciando o desenvolvimento</h2>
+<h3 id="estrutura-do-projeto">Estrutura do projeto</h3>
+<p>Neste tutorial vamos editar majoritariamente os arquivos contidos no diretório <code>src</code>, localizado na pasta do projeto.
+Este diretório contém:</p>
+<ul>
+<li><code>main.js</code>: serve como ponto de entrada da aplicação. É geralmente o arquivo em que os components e bilbiotecas utilizados no projeto são registrados.</li>
+<li><code>App.vue</code>: componente chamado pelo main.js, ou seja, componente de mais alto nível e renderizado na página inicial.</li>
+<li><code>components</code>: diretório para armazenar os componentes criados no projeto</li>
+<li><code>assets</code>: diretório para armazenar arquivos estáticos, como css's e imagens</li>
+</ul>
+<h3 id="single-file-components">Single file components</h3>
+<p>Components podem ser utilizados para fragmentar o desenvolvimento do app em blocos menores, facilitando a compreensão, manuseio e teste do código.
+Além disso, é muito comum separar o template, da lógica e do estilo em arquivos diferentes quando trabalhamos com outros frameworks ou tecnologias para o desenvolvimento front-end.
+Para o Vue.js, entretanto, é possível utilizar-se dos chamados <code>single file components</code> (os arquivos .vue) que permitem agrupar os três fatores mencionados em um só arquivo, 
+sem a necessidade de criar um <code>.html</code>, <code>.css</code> e um <code>.js</code> para a construção de um component. </p>
+<p>No caso do aplicativo a ser desenvolvido por este tutorial, por exemplo, criaremos um .vue para o component que representará uma nota (postit)</p>
+<h3 id="criando-o-primeiro-component">Criando o primeiro component</h3>
+<p>Crie o arquivo <code>src/components/Note.vue</code> com o seguinte conteúdo:</p>
+<pre><code>&lt;template&gt;
+&lt;div class="card"&gt;
+  &lt;h3 class="card-title"&gt;Receita de miojo&lt;/h3&gt;
+  &lt;div class="card-content"&gt;
+    &lt;p&gt;
+      Bata com um martelo antes de abrir o pacote. Misture o tempero,
+      coloque em uma vasilha e aproveite seu snack :)
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>Depois subtitua o conteúdo do <code>src/App.vue</code> para mostrar o component criado:</p>
+<pre><code>&lt;template&gt;
+  &lt;div id='App'&gt;
+    &lt;Note/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import Note from './components/Note.vue'
+
+export default {
+    name: 'App',
+    components: {
+        Note
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<p>Note que as tags <code>template</code> e <code>script</code> delimitam o template da lógica no single file component.</p>
+<p>Nos códigos acima, criamos um template Note que será visualizado quando App.vue for chamado. Observe que o componente foi importado na parte do script e adicionado na parte do template do App.vue</p>
+<p>Para adicionar estilo e dar a aparência de um post-it a nota criada, podemos adicionar o seguinte trecho ao <code>Note.vue</code> (depois do script):</p>
+<pre><code>&lt;style &gt;
+.card {
+width: 200px;
+display: flex;
+flex-direction: column;
+min-height: 100px;
+margin: 10px 5px;
+padding: 10px;
+box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+border-radius: 5px;
+font-family: "Permanent Marker", cursive;
+}
+
+.card-title {
+font-weight: bold;
+line-height: 1.2;
+margin-bottom: 1rem;
+font-size: 1.2rem;
+}
+
+.card-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+color: #4c4c4c;
+}
+&lt;/style&gt;
+</code></pre>
+<p>Para utilizar fontes, adicione o seguinte trecho em <code>public/index.html</code>, logo após a tag <code>link</code> e antes da tag <code>title</code>:</p>
+<pre><code>&lt;link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+  integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+  crossorigin="anonymous"
+/&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" /&gt;
+&lt;link
+  href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Permanent+Marker&amp;display=swap"
+  rel="stylesheet"
+/&gt;
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Apagando os exemplos</p>
+<p>Quando você iniciou o projeto, um arquivo "HelloWorld.vue" deve ter sido criado na pasta <code>components</code>.
+Você está livre para apagá-lo se desejar.</p>
+</div>
+<h3 id="passando-informacoes-as-notas">Passando informações às notas</h3>
+<p>Ao adicionar os códigos acima ao projeto, percebe-se que adicionar mais notas ao App.vue iria apenas renderizar o mesmo 
+cartão multiplas vezes. Para resolver o problema, podemos fazer com que cada cartão receba parâmetros que mudem o conteúdo
+a ser renderizado. Para isso utilizamos props.</p>
+<p>Modifique o <code>Note.vue</code> de forma a receber os props. Para isso, substitua a parte do <code>template</code> por:</p>
+<pre><code>&lt;template&gt;
+    &lt;div class="card"&gt;
+        &lt;h3 class="card-title"&gt;{{title}}&lt;/h3&gt;
+        &lt;div class="card-content"&gt;{{content}}&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: 'Note',
+    props: {
+        title:String,
+        content:String
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<p>Observe que os props a serem recebidos são do tipo String e são definidos na parte do script do component.</p>
+<p>Agora podemos passar parâmetros quando chamarmos o Note no App.vue. Para testar, substitua
+a tag <code>Note</code> no <code>App.vue</code> por:</p>
+<pre><code>&lt;div id='App'&gt;
+  &lt;Note title="Receita de miojo" content="Bata com um martelo antes de abrir o pacote. Misture o tempero, coloque
+    em uma vasilha e aproveite seu snack :)"&gt; 
+  &lt;/Note&gt;
+  &lt;Note title="Sorvete de banana" content="Coloque a banana no congelador e espere."&gt;
+  &lt;/Note&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Note que agora foram renderizados duas notas com títulos e conteúdos diferente.</p>
+<h2 id="renderizando-multiplos-components">Renderizando múltiplos components</h2>
+<p>Apesar de termos feito um avanço ao passar os parâmetros para as notas, ainda estamos passando informação diretamente pelo código na chamada da tag <code>Note</code>, 
+além disso limitamos o número de notas para apenas a quantidade criada no no App.vue.
+Assim, para melhorar, podemos renderizar notas a partir de uma array com as informações que desejamos incluir, tendo uma quantidade variável de notas a serem renderizadas.</p>
+<p>Para simular uma array de dados, substitua o código no <code>main.js</code> por:</p>
+<pre><code>import Vue from 'vue'
+import App from './App.vue'
+
+Vue.config.productionTip = false
+
+new Vue({
+    data: {
+        notes:[
+            {
+            id: 1,
+            title: "Receita de miojo",
+            content:
+            "Bata com um martelo antes de abrir o pacote. Misture o tempero, coloque em uma vasilha e aproveite seu snack :)",
+            },
+            {
+                id: 2,
+                title: "Sorvete de banana",
+                content: "Coloque a banana no congelador e espere.",
+            }
+      ]
+    },
+    render(h){
+        return h(App, {props: {appData: this.notes}})
+    },
+}).$mount('#app')
+</code></pre>
+<p>Para que os dados sejam recebidos, substitua a parte do <code>script</code> do <code>App.vue</code> por:</p>
+<pre><code>&lt;script&gt;
+import Note from './components/Note.vue'
+
+export default {
+    name: 'App',
+    props:["appData"],
+    components: {
+        Note
+    },
+}
+&lt;/script&gt;
+</code></pre>
+<p>Dos códigos acima, foi criado uma array de dados definida como <strong>notes</strong> no <code>main.js</code>. Esta array é passada como um prop denominado <code>appData</code>
+para o <code>App.vue</code>.</p>
+<p>Para renderizar os múltiplos components utilizaremos a diretiva <code>v-for</code> do Vue. Assim, substitua o conteúdo do <code>template</code> do <code>App.vue</code> por:</p>
+<pre><code>&lt;template&gt;
+    &lt;div id='App'&gt;
+        &lt;div class='card-container'&gt;
+            &lt;Note v-for="note in appData" :key="note.id" :title="note.title" :content="note.content" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Diretivas</p>
+<p>Diretivas no Vue.js são atributos especiais no HTML (template) que permite a manipulação do DOM (Modelo de Objeto de Documento).
+Assim, o v-for, por exemplo, permite que iteremos sobre os dados no appData e criemos um component Note para cada
+valor da array recebida.</p>
+</div>
+<p>Aproveite e altere o estilo da página de forma a organizar as notas recebendo uma quantidade variável de informação.
+Adicione ao final do <code>App.vue</code>:</p>
+<pre><code>&lt;style &gt;
+.card-container{
+display:flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-evenly;
+margin-top: 3rem;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="fazendo-requisicoes">Fazendo requisições</h2>
+<h3 id="preparando-para-fazer-as-requisicoes">Preparando para fazer as requisições</h3>
+<p>Agora que nosso aplicativo consegue obter informações de arrays e disponibiliza-la na forma de anotações, podemos receber dados de 
+servidores externos à nossa aplicação. Utilizaremos o axios para tanto. Instale-o com o comando:</p>
+<pre><code>npm i axios
+</code></pre>
+<p>No servidor que atuará como um back-end e disponibilizará os dados para nossa aplicação (handouts recomendados no começo do tutorial), 
+instale o seguinte módulo:</p>
+<pre><code>pip install django-cors-headers
+</code></pre>
+<p>E no arquivo <code>getit/settings.py</code>, adicione a seguinte linha ao <code>INSTALLED_APPS</code>:</p>
+<pre><code>INSTALLED_APPS = [
+...
+'corsheaders',
+...
+]
+</code></pre>
+<p>Em <code>MIDDLEWARE</code> adicione na primeira linha:</p>
+<pre><code>MIDDLEWARE = [
+'corsheaders.middleware.CorsMiddleware',
+...
+]
+</code></pre>
+<p>E finalmente, no final do arquivo adicione: </p>
+<pre><code>CORS_ORIGIN_ALLOW_ALL = True
+</code></pre>
+<p>Assim, o servidor Django deve estar pronto para aceitar as requisições vindas do nosso aplicativo</p>
+<h3 id="utilizando-o-axios">Utilizando o axios</h3>
+<p>Para realizar uma requisição do tipo GET com o axios, importe o axios e substitua a instância <code>Vue</code> no <code>main.js</code> por:</p>
+<pre><code>import Vue from 'vue'
+import App from './App.vue'
+import axios from "axios";
+
+Vue.config.productionTip = false
+
+new Vue({
+    data: {
+        notes:[]
+    },
+    mounted() {
+        axios.get("http://localhost:8000/api/notes/").then(res =&gt; this.notes = res.data)
+    },
+    render(h){
+        return h(App, {props: {appData: this.notes}})
+    },
+}).$mount('#app')
+</code></pre>
+<p>Assim, os dados não virão de uma array criada no código, e sim de uma requisição feita para um servidor externo.</p>
+<h3 id="criando-um-formulario">Criando um formulário</h3>
+<p>Agora que conseguimos pegar dados utilizando requisições, vamos criar um formulário que mandará dados ao servidor externo
+e este adicionará à lista de notas, fazendo com que as notas disponibilizadas no nosso aplicativo aumente.</p>
+<p>Crie o arquivo <code>src/components/Formulario.vue</code> que será o componente para nosso formulário:</p>
+<pre><code>&lt;template&gt;
+&lt;form class="form-card"&gt;
+    &lt;input
+    class="form-card-title"
+    type="text"
+    name="titulo"
+    v-model="form.title"
+    placeholder="Título"
+    /&gt;
+    &lt;textarea
+    class="autoresize"
+    name="detalhes"
+    v-model="form.content"
+    placeholder="Digite o conteúdo..."
+    &gt;&lt;/textarea&gt;
+    &lt;button class="btn" v-on:click="postNote"&gt;Criar&lt;/button&gt;
+&lt;/form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from "axios";
+
+export default {
+    name: 'Formulario',
+    methods: {
+        postNote() {
+        axios
+            .post("http://localhost:8000/api/notes/", {title:this.form.title, content:this.form.content})
+            .then((res) =&gt; {
+            this.user = res.data;
+            })
+            .catch((error) =&gt; {
+            console.log(error);
+            });
+        },
+    },
+    data: function(){
+        return{
+            form:{
+                title:'',
+                content:''
+            }
+        }
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+.form-card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem;
+    height: 8rem;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.5);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.5rem 0.4rem 0.5rem;
+}
+
+input{
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+textarea{
+    border: none;
+    font-size: 1rem;
+
+}
+
+.btn{
+    display: block;
+    background-color: #f7d943;
+    border: none;
+    border-radius: 0.2rem;
+    height: 2rem;  
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+}
+&lt;/style&gt;
+</code></pre>
+<p>Vamos analisar a implementação do formulário.</p>
+<p>Na parte do <code>script</code> temos os dados serem enviados como <strong>data</strong> (no caso, o elemento <code>form</code> dentro de data).
+Ao olhar para a parte do <code>template</code> vemos que a diretiva <code>v-model</code> faz referência aos dados à serem mandados na nossa request.
+A diretiva <code>v-model</code> é utilizada para criar interligações de mão dupla (two-way binding) entre os dados declarados no <code>script</code> (o elemento <code>form</code>)
+e os valores colocados nos elementos <code>input, textarea e select</code> do <code>template</code>. </p>
+<p>Assim, a diretiva atualiza <strong>automaticamente</strong> os valores com base 
+nas entradas de cada elemento. Se o valor no <code>script</code> fosse alterado, isso seria visível na página (<code>template</code>) e se o valor na página for alterado
+(como uma entrada do usuário, por exemplo), o valor no <code>script</code> é alterado para cada instância, caracterizando a mão dupla.</p>
+<p>Logo, quando o usuário aperta o botão de enviar, uma requisição do tipo POST é feita, enviando os dados que estão preenchidos no campo de texto.</p>
+<p>Para adicionar o formulário ao nosso aplicativo basta inserir a linha seguinte no <code>App.vue</code>, logo abaixo do primeiro div do <code>template</code>:</p>
+<pre><code>&lt;Formulario/&gt;
+</code></pre>
+<p>Adicione também o formulário aos components em <code>scripts</code>:</p>
+<pre><code>&lt;script&gt;
+import Note from './components/Note.vue'
+import Formulario from './components/Formulario.vue'
+
+export default {
+    name: 'App',
+    props:["appData"],
+    components: {
+        Note,
+        Formulario,
+    },
+}
+&lt;/script&gt;
+</code></pre>
+<p>Com isso você deve ser capaz de postar novas notas no aplicativo.</p>
+<h2 id="rotacao-dos-cartoes">Rotação dos cartões</h2>
+<p>Para adicionar rotação aleatória aos cartões, substitua o <code>template</code> e o <code>script</code>
+do <code>Note.vue</code> para:</p>
+<pre><code>&lt;template&gt;
+    &lt;div class="card" v-bind:style="styleObject"&gt;
+        &lt;h3 class="card-title"&gt;{{title}}&lt;/h3&gt;
+        &lt;div class="card-content"&gt;{{content}}&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: 'Note',
+    props: {
+        title:String,
+        content:String
+    },
+    methods:{
+        randomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    },
+    data:function(){
+        return{
+            styleObject: {
+                transform: `rotate(${this.randomInt(-5, 5)}deg)`
+            }
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

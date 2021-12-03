@@ -1,3 +1,7 @@
-site_name: My Docs
+site_name: Tutorial Vue.js
 theme:
   name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
