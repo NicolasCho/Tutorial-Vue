@@ -9,7 +9,7 @@
 - [X] 23/11: Finalizar códigos do aplicativo em Vue
 - [X] 25/11: Iniciar página do tutorial
 - [X] 30/11: Finalizar página e publicar
-- [ ] 08/12: Arrumar detalhes e problemas, caso exista (projeto finalizado)
+- [X] 08/12: Arrumar detalhes e problemas, caso exista (projeto finalizado)
 
 --- 
 ### Links
@@ -18,3 +18,12 @@ Link para a página do tutorial no GitHub Pages: https://nicolascho.github.io/Tu
 A arquitetura encontra-se em: https://github.com/NicolasCho/Tutorial-Vue/blob/main/arquitetura/arquitetura_projeto3.png
 
 Códigos utilizados no tutorial: https://github.com/NicolasCho/Tutorial-Vue/tree/main/codigos/getit_vue
+
+---
+### Funcionalidades
+
+- [X] Descrição do framework, instalação e setup do projeto;
+- [X] Descrição e uso dos single-file components (.vue files)
+- [X] Renderizando múltiplos componentes
+- [X] Fazendo requisições
+- [X] **ADICIONAL**: Rotação de cartões
